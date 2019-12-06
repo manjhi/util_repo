@@ -29,7 +29,6 @@ public class AppPreferences {
     }
 
     public String GetString(String key) {
-
         return sharedPreferences.getString(key, "");
     }
 
@@ -37,14 +36,14 @@ public class AppPreferences {
         sharedPreferences.edit().clear().apply();
     }
 
-    public void saveUserDetails(String key, Object registerModelClass) {
+    public void saveDetails(String key, Object registerModelClass) {
         Gson gson = new Gson();
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(key, gson.toJson(registerModelClass));
         editor.apply();
     }
 
-    public <T> T getUserDetails(String key, Class<T> type) {
+    public <T> T getDetails(String key, Class<T> type) {
         Gson gson = new Gson();
         return gson.fromJson(sharedPreferences.getString(key, ""), type);
     }
