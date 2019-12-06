@@ -12,8 +12,11 @@ dependencies
 
 
 allprojects 
+
     repositories 
+            
             maven
-            url 'https://jitpack.io'
+            
+            {url 'https://jitpack.io'}
             
 
