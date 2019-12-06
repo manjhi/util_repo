@@ -37,15 +37,15 @@ public class AppPreferences {
         sharedPreferences.edit().clear().apply();
     }
 
-    public void saveUserDetails(Object registerModelClass) {
+    public void saveDetails(String key, Object registerModelClass) {
         Gson gson = new Gson();
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("LoginData", gson.toJson(registerModelClass));
+        editor.putString(key, gson.toJson(registerModelClass));
         editor.apply();
     }
 
-    public Object getUserDetails() {
+    public Object getDetails(String key) {
         Gson gson = new Gson();
-        return gson.fromJson(sharedPreferences.getString("LoginData", ""), Object.class);
+        return gson.fromJson(sharedPreferences.getString(key, ""), Object.class);
     }
 }
