@@ -27,7 +27,6 @@ public class AppPreferences {
         editor.putString(key, value);
         editor.commit();
     }
-
     public String GetString(String key) {
         return sharedPreferences.getString(key, "");
     }
